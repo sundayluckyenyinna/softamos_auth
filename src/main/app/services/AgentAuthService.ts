@@ -111,7 +111,7 @@ export default class AgentAuthService {
        const newToken: string = this.generateAgentAuthToken(agent);
        const agentAuth: AgentAuth = await this.agentAuthRepository.findOne({ where: { agent: agent }});
        if(!agentAuth){
-         ApiException.throwNewInstance(HttpStatus.NOT_FOUND, "could not find agent security record");
+         ApiException.throwNewInstance(HttpStatus.NOT_FOUND, "Could not find agent security record!");
        }
        agentAuth.authToken = newToken;
        return this.agentAuthRepository.save(agentAuth);
